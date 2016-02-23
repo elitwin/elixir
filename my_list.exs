@@ -23,8 +23,8 @@ defmodule MyList do
   def max([head | _tail] = list), do: _max(list, head)
 
   defp _max([], value), do: value
-  defp _max( [ head | tail ], value) when head > value, do: _max(tail, head)
-  defp _max( [ _head | tail ], value), do: _max(tail, value)
+  defp _max([ head | tail ], value) when head > value, do: _max(tail, head)
+  defp _max([ _head | tail ], value), do: _max(tail, value)
 
   # caesar function
   def caesar([], _n), do: []
