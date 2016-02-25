@@ -1,8 +1,7 @@
 defmodule Geom do
   @moduledoc """
   Functions for calculating areas of geometric shapes.
-
-  from *Etudes for Elixir*
+  from *Études for Elixir*
   """
   @vsn 0.2
 
