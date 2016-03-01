@@ -20,6 +20,7 @@ defmodule MyList do
   def sum2([ head | tail ]), do: head + sum2(tail)
 
   # max function - handles negative values too
+  def max([]), do: nil
   def max([head | _tail] = list), do: _max(list, head)
 
   defp _max([], value), do: value
@@ -29,14 +30,14 @@ defmodule MyList do
   # caesar function
   def caesar([], _n), do: []
 
-  def caesar([ head | tail ], n) when head+n <= ?z do
-    IO.puts head+n
-    [ head+n | caesar(tail, n) ]
+  def caesar([ head | tail ], n) when head + n <= ?z do
+    IO.puts head + n
+    [ head + n | caesar(tail, n) ]
   end
 
   def caesar([ head | tail ], n) do
-    IO.puts head+n-26
-    [ head+n-26 | caesar(tail, n) ]
+    IO.puts head + n - 26
+    [ head + n - 26 | caesar(tail, n) ]
   end
 
   # span
