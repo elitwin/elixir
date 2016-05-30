@@ -1,5 +1,5 @@
 # Conditional with reverse
-defmodule FizzBuzz1 do
+defmodule FizzBuzzCond do
   def upto(n) when n > 0, do: _upto(1, n, [])
 
   defp _upto(_current, 0, result), do: Enum.reverse result
@@ -17,7 +17,7 @@ defmodule FizzBuzz1 do
 end
 
 # Conditional without reverse
-defmodule FizzBuzz2 do
+defmodule FizzBuzzCondNoReverse do
   def upto(n) when n > 0, do: _downto(n, [])
 
   defp _downto(0, result), do: result
@@ -35,7 +35,7 @@ defmodule FizzBuzz2 do
 end
 
 # Conditional with map
-defmodule FizzBuzz3 do
+defmodule FizzBuzzCondMap do
   def upto(n) when n > 0, do: 1..n |> Enum.map(&fizzbuzz/1)
 
   defp fizzbuzz(n) do
@@ -48,8 +48,22 @@ defmodule FizzBuzz3 do
   end
 end
 
+# Case with map
+defmodule FizzBuzz3CaseMap do
+  def upto(n) when n > 0, do: 1..n |> Enum.map(&fizzbuzz/1)
+
+  defp fizzbuzz(n) do
+    case {rem(n,3), rem(n,5)} do
+      {0, 0} -> "FizzBuzz"
+      {0, _} -> "Fizz"
+      {_, 0} -> "Buzz"
+      {_, _} -> n
+    end
+  end
+end
+
 # Pattern match with map (most idiomatic)
-defmodule FizzBuzz4 do
+defmodule FizzBuzzPatternMap do
   def upto(n) when n > 0, do: 1..n |> Enum.map(&fizzbuzz/1)
 
   defp fizzbuzz(n), do: _fizzword(n, rem(n, 3), rem(n, 5))
